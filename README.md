@@ -48,6 +48,20 @@ A VoeBem Analytics é a consultoria fictícia do exercício: o objetivo é respo
   perguntas de negócio do projeto (ex: aeroportos com maiores atrasos, pontualidade
   por companhia, recuperação de atraso em voo)
 
+## Prints do projeto
+
+**Catálogo organizado em Bronze / Silver / Gold, no Unity Catalog:**
+
+![Catalog Explorer com os schemas bronze, silver e gold](docs/screenshots/catalog-schemas-medallion.png)
+
+**Lineage automático — do CSV até a Gold, sem nenhuma linha de código de rastreabilidade:**
+
+![Lineage da tabela dim_aeroporto](docs/screenshots/lineage-dim-aeroporto.png)
+
+**Pipeline declarativo de qualidade rodando (12 expectations em modo warn):**
+
+![Grafo do pipeline de qualidade](docs/screenshots/pipeline-qualidade-grafo.png)
+
 ## O Genie em ação
 
 Perguntas em linguagem natural, respondidas direto sobre `voebem.gold.obt_voos`, sem
@@ -61,6 +75,10 @@ em vez de código ICAO, e aplica a definição de atraso (>15 min) das instruç�
 ![Percentual de voos atrasados por aeroporto](docs/screenshots/genie-percentual-voos-atrasados.png)
 
 ![Atraso médio vs percentual de atrasos, visão combinada](docs/screenshots/genie-atraso-vs-percentual-combinado.png)
+
+**"Qual companhia tem melhor pontualidade?"**
+
+![Pontualidade de partida por companhia aérea](docs/screenshots/genie-pontualidade-por-companhia.png)
 
 ## Créditos
 
