@@ -17,7 +17,7 @@ A VoeBem Analytics é a consultoria fictícia do exercício: o objetivo é respo
   modo warn, quarentena como diagnóstico)
 - `sql/gold/` — camada Gold: dimensão de aeroporto, fato de voos, OBT (`obt_voos`)
 - `genie/` — instruções do agente conversacional (Genie) sobre os dados
-- `docs/` — fontes de dados, perguntas de negócio, roadmap e notas do processo
+- `docs/` — fontes de dados, perguntas de negócio e critérios de aceitação
 
 ## Camadas
 
@@ -32,25 +32,23 @@ A VoeBem Analytics é a consultoria fictícia do exercício: o objetivo é respo
    One Big Table desnormalizada desenhada para consumo por IA.
 5. **Genie** (`genie/`) — agente conversacional sobre `voebem.gold.obt_voos`.
 
-## Progresso
+## Resultados
 
-- [x] Bronze: `vra`, `aerodromos`, `empresas_nacionais`, `empresas_estrangeiras`,
-      `codigos_operacao` (1.014.705 linhas em `vra`)
-- [x] Silver: espelho completo, mesma contagem de linhas do Bronze
-- [x] Pipeline de qualidade: 12 expectations (9 do gabarito + 3 adicionais:
-      catalogação de `codigo_di`/`codigo_tipo_linha` e detecção de duplicata exata)
-- [x] Gold: `dim_aeroporto`, `fato_voos`, `obt_voos` (1.014.664 linhas — 41
-      duplicatas exatas removidas, única exclusão de linha do pipeline)
-- [x] Governança: `COMMENT` em todas as colunas, tags, lineage automático via
-      Unity Catalog
-- [x] Genie Agent conectado à `obt_voos`, validado contra o gabarito de negócio
-      (ex: atraso médio em Guarulhos = 13,42 min, idêntico ao gabarito oficial)
+- **Bronze:** 5 tabelas (`vra`, `aerodromos`, `empresas_nacionais`, `empresas_estrangeiras`,
+  `codigos_operacao`) — 1.014.705 linhas em `vra`, ingestão crua e idempotente
+- **Silver:** espelho tipado e documentado, mesma contagem de linhas do Bronze
+- **Qualidade:** pipeline declarativo com 12 expectations em modo warn (completude,
+  coerência temporal, faixa plausível, integridade referencial, catalogação de
+  código e detecção de duplicata), com quarentena como diagnóstico
+- **Gold:** `dim_aeroporto`, `fato_voos` e `obt_voos` — 1.014.664 linhas (41
+  duplicatas exatas removidas na única exclusão de linha do pipeline), com
+  pontualidade, escopo doméstico/internacional e nomes resolvidos sem exigir join
+- **Governança:** `COMMENT` em toda coluna, tags e lineage automático via Unity Catalog
+- **Genie Agent** conectado à `obt_voos`, respondendo em linguagem natural às
+  perguntas de negócio do projeto (ex: aeroportos com maiores atrasos, pontualidade
+  por companhia, recuperação de atraso em voo)
 
 ## Créditos
 
 Contexto educacional: **Imersão Engenharia de Dados**, Alura, setembro/2026.
 Fonte dos dados: ANAC (Agência Nacional de Aviação Civil), ver `docs/fontes.md`.
-
-O gabarito de referência usado para validar cada camada deste projeto vem do
-repositório colaborativo da turma:
-[Alura-Imersao-Engenharia-de-dados-2026/projeto-aviacao-anac](https://github.com/Alura-Imersao-Engenharia-de-dados-2026/projeto-aviacao-anac).
