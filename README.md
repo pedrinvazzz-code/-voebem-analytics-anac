@@ -82,5 +82,5 @@ em vez de código ICAO, e aplica a definição de atraso (>15 min) das instruç�
 
 ## Créditos
 
-Contexto educacional: **Imersão Engenharia de Dados**, Alura, setembro/2026.
+Contexto educacional: **Imersão Engenharia de Dados com IA**, Alura, setembro/2026.
 Fonte dos dados: ANAC (Agência Nacional de Aviação Civil), ver `docs/fontes.md`.
