@@ -48,6 +48,20 @@ A VoeBem Analytics é a consultoria fictícia do exercício: o objetivo é respo
   perguntas de negócio do projeto (ex: aeroportos com maiores atrasos, pontualidade
   por companhia, recuperação de atraso em voo)
 
+## O Genie em ação
+
+Perguntas em linguagem natural, respondidas direto sobre `voebem.gold.obt_voos`, sem
+nenhum JOIN manual — o agente escolhe o corte de volume mínimo, usa nome de aeroporto
+em vez de código ICAO, e aplica a definição de atraso (>15 min) das instruções.
+
+**"Quais aeroportos do Brasil concentram os maiores atrasos de partida?"**
+
+![Atraso médio por aeroporto](docs/screenshots/genie-atraso-medio-por-aeroporto.png)
+
+![Percentual de voos atrasados por aeroporto](docs/screenshots/genie-percentual-voos-atrasados.png)
+
+![Atraso médio vs percentual de atrasos, visão combinada](docs/screenshots/genie-atraso-vs-percentual-combinado.png)
+
 ## Créditos
 
 Contexto educacional: **Imersão Engenharia de Dados**, Alura, setembro/2026.
